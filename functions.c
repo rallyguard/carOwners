@@ -6,55 +6,55 @@ CarOwner* add_owner(CarOwner* owners, int* count) {
     (*count)+=1;
     CarOwner* temp = realloc(owners, (*count) * sizeof(CarOwner));
     if (temp == NULL) {
-        // обработка ошибки, я не знаю как обрабатывать))))
-        printf("НАУЧИСЬ ОБРАБАТЫВАТЬ ОШИБ(**№ВЫФ(ЫФВ(ВЫФ(*ВФЫ(В*ЫФВ*ЫФ(В)ФЫВФЫВЖ");
+        // РѕР±СЂР°Р±РѕС‚РєР° РѕС€РёР±РєРё, СЏ РЅРµ Р·РЅР°СЋ РєР°Рє РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ))))
+        printf("РќРђРЈР§РРЎР¬ РћР‘Р РђР‘РђРўР«Р’РђРўР¬ РћРЁРР‘(**в„–Р’Р«Р¤(Р«Р¤Р’(Р’Р«Р¤(*Р’Р¤Р«(Р’*Р«Р¤Р’*Р«Р¤(Р’)Р¤Р«Р’Р¤Р«Р’Р–");
     }
     else {
         owners = temp;
-        printf("Введите фамилию: ");
+        printf("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ: ");
         scanf_s("%s", owners[*count - 1].surname, N);
 
-        printf("Введите имя: ");
+        printf("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
         scanf_s("%s", owners[*count - 1].name, N);
 
-        printf("Введите отчество: ");
+        printf("Р’РІРµРґРёС‚Рµ РѕС‚С‡РµСЃС‚РІРѕ: ");
         scanf_s("%s", owners[*count - 1].patronymic, N);
 
-       /* printf("Введите номер телефона: ");
+       /* printf("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°: ");
         scanf_s("%s", owners[*count - 1].phone_number, N);
 
-        printf("Введите страну: ");
+        printf("Р’РІРµРґРёС‚Рµ СЃС‚СЂР°РЅСѓ: ");
         scanf_s("%s", owners[*count - 1].address.country, N);
 
-        printf("Введите область: ");
+        printf("Р’РІРµРґРёС‚Рµ РѕР±Р»Р°СЃС‚СЊ: ");
         scanf_s("%s", owners[*count - 1].address.region, N);
 
-        printf("Введите район: ");
+        printf("Р’РІРµРґРёС‚Рµ СЂР°Р№РѕРЅ: ");
         scanf_s("%s", owners[*count - 1].address.district, N);
 
-        printf("Введите город: ");
+        printf("Р’РІРµРґРёС‚Рµ РіРѕСЂРѕРґ: ");
         scanf_s("%s", owners[*count - 1].address.city, N);
 
-        printf("Введите улицу: ");
+        printf("Р’РІРµРґРёС‚Рµ СѓР»РёС†Сѓ: ");
         scanf_s("%s", owners[*count - 1].address.street, N);
 
-        printf("Введите номер дома: ");
+        printf("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РґРѕРјР°: ");
         scanf_s("%d", &owners[*count - 1].address.house_number);
 
-        printf("Введите номер квартиры: ");
+        printf("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РєРІР°СЂС‚РёСЂС‹: ");
         scanf_s("%d", &owners[*count - 1].address.flat_number);
 
-        printf("Введите марку автомобиля: ");
+        printf("Р’РІРµРґРёС‚Рµ РјР°СЂРєСѓ Р°РІС‚РѕРјРѕР±РёР»СЏ: ");
         scanf_s("%s", owners[*count - 1].car_brand, N);
 
-        printf("Введите номер автомобиля: ");
+        printf("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р°РІС‚РѕРјРѕР±РёР»СЏ: ");
         scanf_s("%s", owners[*count - 1].car_number, N);
 
-        printf("Введите номер техпаспорта: ");
+        printf("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ С‚РµС…РїР°СЃРїРѕСЂС‚Р°: ");
         scanf_s("%s", owners[*count - 1].tech_passport, N);*/
         
 
-        printf("Запись успешно добавлена!\n\n");
+        printf("Р—Р°РїРёСЃСЊ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅР°!\n\n");
 
         return owners;
     }
@@ -62,9 +62,9 @@ CarOwner* add_owner(CarOwner* owners, int* count) {
 
 CarOwner* delete_owner(CarOwner* owners, int* count) {
     int index = 0;
-    printf("Напишите номер записи которую желаете удалить: ");
+    printf("РќР°РїРёС€РёС‚Рµ РЅРѕРјРµСЂ Р·Р°РїРёСЃРё РєРѕС‚РѕСЂСѓСЋ Р¶РµР»Р°РµС‚Рµ СѓРґР°Р»РёС‚СЊ: ");
     if (scanf_s("%u", &index) < 1) {
-        printf("\nОшибка ввода\n");
+        printf("\nРћС€РёР±РєР° РІРІРѕРґР°\n");
         return owners;
     }
     index -= 1;
@@ -76,8 +76,8 @@ CarOwner* delete_owner(CarOwner* owners, int* count) {
         }
         CarOwner* temp = realloc(owners, (*count - 1) * sizeof(CarOwner));
         if (temp == NULL) {
-            // обработка ошибки, я не знаю как обрабатывать))))
-            printf("НАУЧИСЬ ОБРАБАТЫВАТЬ ОШИБ(**№ВЫФ(ЫФВ(ВЫФ(*ВФЫ(В*ЫФВ*ЫФ(В)ФЫВФЫВЖ");
+            // РѕР±СЂР°Р±РѕС‚РєР° РѕС€РёР±РєРё, СЏ РЅРµ Р·РЅР°СЋ РєР°Рє РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ))))
+            printf("РќРђРЈР§РРЎР¬ РћР‘Р РђР‘РђРўР«Р’РђРўР¬ РћРЁРР‘(**в„–Р’Р«Р¤(Р«Р¤Р’(Р’Р«Р¤(*Р’Р¤Р«(Р’*Р«Р¤Р’*Р«Р¤(Р’)Р¤Р«Р’Р¤Р«Р’Р–");
         }
         else {
             owners = temp;
@@ -86,30 +86,30 @@ CarOwner* delete_owner(CarOwner* owners, int* count) {
         }
     }
     else {
-        printf("К сожалению записи с таким номером не найдено");
+        printf("Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ Р·Р°РїРёСЃРё СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј РЅРµ РЅР°Р№РґРµРЅРѕ");
         return owners;
     }
 }
 
 void print_owners(CarOwner* owners, int count) {
-    printf("\n\nВсего владельцев машин: %d\n", count);
+    printf("\n\nР’СЃРµРіРѕ РІР»Р°РґРµР»СЊС†РµРІ РјР°С€РёРЅ: %d\n", count);
     for (int i = 0; i < count; i++) {
-        printf("Запись %d >>  ", i + 1);
-        printf("| Фамилия: %s\n", owners[i].surname);
-        printf("             | Имя: %s\n", owners[i].name);
-        printf("             | Отчество: %s\n", owners[i].patronymic);
-        /*printf("             | Номер телефона: %s\n", owners[i].phone_number);
-        printf("             | Домашний адрес:\n");
-        printf("             | Страна: %s\n", owners[i].address.country);
-        printf("             | Область: %s\n", owners[i].address.region);
-        printf("             | Район: %s\n", owners[i].address.district);
-        printf("             | Город: %s\n", owners[i].address.city);
-        printf("             | Улица: %s\n", owners[i].address.street);
-        printf("             | Дом: %d\n", owners[i].address.house_number);
-        printf("             | Квартира: %d\n", owners[i].address.flat_number);
-        printf("             | Марка автомобиля: %s\n", owners[i].car_brand);
-        printf("             | Номер автомобиля: %s\n", owners[i].car_number);
-        printf("             | Номер техпаспорта: %s\n", owners[i].tech_passport);*/
+        printf("Р—Р°РїРёСЃСЊ %d >>  ", i + 1);
+        printf("| Р¤Р°РјРёР»РёСЏ: %s\n", owners[i].surname);
+        printf("             | РРјСЏ: %s\n", owners[i].name);
+        printf("             | РћС‚С‡РµСЃС‚РІРѕ: %s\n", owners[i].patronymic);
+        /*printf("             | РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°: %s\n", owners[i].phone_number);
+        printf("             | Р”РѕРјР°С€РЅРёР№ Р°РґСЂРµСЃ:\n");
+        printf("             | РЎС‚СЂР°РЅР°: %s\n", owners[i].address.country);
+        printf("             | РћР±Р»Р°СЃС‚СЊ: %s\n", owners[i].address.region);
+        printf("             | Р Р°Р№РѕРЅ: %s\n", owners[i].address.district);
+        printf("             | Р“РѕСЂРѕРґ: %s\n", owners[i].address.city);
+        printf("             | РЈР»РёС†Р°: %s\n", owners[i].address.street);
+        printf("             | Р”РѕРј: %d\n", owners[i].address.house_number);
+        printf("             | РљРІР°СЂС‚РёСЂР°: %d\n", owners[i].address.flat_number);
+        printf("             | РњР°СЂРєР° Р°РІС‚РѕРјРѕР±РёР»СЏ: %s\n", owners[i].car_brand);
+        printf("             | РќРѕРјРµСЂ Р°РІС‚РѕРјРѕР±РёР»СЏ: %s\n", owners[i].car_number);
+        printf("             | РќРѕРјРµСЂ С‚РµС…РїР°СЃРїРѕСЂС‚Р°: %s\n", owners[i].tech_passport);*/
 
         printf("\n");
     }
