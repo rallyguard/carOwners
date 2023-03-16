@@ -3,14 +3,14 @@
 #include "funcs.h"
 
 int main() {
-    setlocale(LC_ALL, "Rus");
+    setlocale(LC_ALL, "en_US.UTF-8");
     int count = 0;
     CarOwner* owners = NULL;
     int choose = 0;
     
     do
     {
-        printf("Введите число, от него зависит что мы с вами сделаем >> \n1: Добавить владельца машины\n2: Удалить запись\n3:Вывести все записи\n");
+        printf("Введите число, от него зависит что мы с вами сделаем >> \n1: Добавить владельца машины\n2: Удалить запись\n3: Вывести все записи\n");
         scanf_s("%d", &choose);
         switch (choose)
         {
