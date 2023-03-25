@@ -11,14 +11,16 @@
     int flat_number;
 };
 
-// Структура владельца автомобиля
-typedef struct {
-    char surname[N];
-    char name[N];
-    char patronymic[N];
-    char phone_number[N];
-    struct Address address;
-    char car_brand[N];
-    char car_number[N];
-    char tech_passport[N];
-}CarOwner;
+ // Структура владельца автомобиля
+ typedef struct {
+     int id;
+     char surname[N];
+     char name[N];
+     char patronymic[N];
+     char phone_number[N];
+     struct Address address;
+     char car_brand[N];
+     char car_number[N];
+     char tech_passport[N];
+ }CarOwner;
+
