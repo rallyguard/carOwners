@@ -12,9 +12,10 @@ int main() {
     int CarOwner_id = 0;
     
     FILE* file = NULL;
+    errno_t err;
 
-    file = fopen("owners.bin", "rb");
-    if (file != NULL) {
+    err = fopen_s(&file, "owners.bin", "rb");
+    if (err == 0) {
         fread(&count, sizeof(int), 1, file); // чтение count
         fread(&CarOwner_id, sizeof(int), 1, file);  // чтение значения id
         owners = (CarOwner*)malloc(count * sizeof(CarOwner));
@@ -31,12 +32,9 @@ int main() {
         owners = (CarOwner*)malloc(sizeof(CarOwner));
     }
 
-    
-
-    printf("Введите число, от него зависит что мы с вами сделаем >>\n");
     do
     {
-        printf("1: Добавить владельца машины\n2: Удалить запись\n3: Вывести все записи\n4: Отредактировать запись\n5: Вывести конкретного владельца автомобиля используя его фамилию\n6: Отсортировать владельцев автомобилей в алфавитном порядке\n7: Вывести всех пользователей по значению фамилии\n8: Вывести отсортированный файл\n0: Выйти из программы ");
+        printf("1: Добавить владельца машины\n2: Удалить запись\n3: Вывести все записи\n4: Отредактировать запись\n5: Отсортировать владельцев автомобилей в алфавитном порядке\n6: Поиск\n7: Вывести отсортированный файл\n8: Вывести поисковый файл\n0: Выйти из программы");
         if (scanf_s("%d", &choose) != 1) {
             fflush(stdin);
             continue;
@@ -44,19 +42,25 @@ int main() {
         switch (choose)
         {
             case 1: owners = add_owner(owners, &count, CarOwner_id);break;
-            case 2: owners = delete_owner(owners, &count, CarOwner_id); break;
+            case 2: owners = delete_owner(owners, &count); break;
             case 3: print_owners(owners, count); break;
             case 4: edit_owner(owners, &count); break;
-            case 5: print_owner(owners, count);  break;
-            case 6: sort_ownersAZ(owners, count); break;
-            case 7: search_owners(owners, count); break;
-            case 8: print_sorted_list("sorted_owners_az.bin"); break;
+            case 5: sort_ownersAZ(owners, count); break;
+            case 6: search_owners(owners, count); break;
+            case 7: print_sorted_list("sort_owners_az.bin"); break;
+            case 8: print_sorted_list("search.bin"); break;
         default:
             break;
         }
     } while (choose != 0);
+    
+    file = fopen("owners.bin", "wb");
+    if (file != NULL) {
+        fwrite(&count, sizeof(int), 1, file);
+        fwrite(&CarOwner_id, sizeof(int), 1, file);
+        fwrite(owners, sizeof(CarOwner), count, file);
+        fclose(file);
+    }
 
-
-    free(owners); 
     return 0;
 }
