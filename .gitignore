@@ -2,3 +2,6 @@ x64/
 .vs/
 owners.bin
 sorted_owners_az.bin
+search.bin
+sort_owners_az.bin
+found_owners.bin
